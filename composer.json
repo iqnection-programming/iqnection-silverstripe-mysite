@@ -13,5 +13,8 @@
     "require": {
         "composer/installers": "*",
         "silverstripe/framework": ">=3.0"
-    }
+    },
+	"config": {
+		"process-timeout": 600
+	}
 }
