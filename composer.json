@@ -1,0 +1,17 @@
+{
+    "name": "iqnection-themes/mysite",
+    "description": "IQnection SilverStripe base theme",
+    "type": "silverstripe-theme",
+    "keywords": ["iqnection"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "IQnection",
+            "homepage": "http://www.iqnection.com"
+        }
+    ],
+    "require": {
+        "composer/installers": "*",
+        "silverstripe/framework": ">=3.0"
+    }
+}

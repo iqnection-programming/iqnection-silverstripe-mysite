@@ -1,0 +1,23 @@
+nav.mobile								{ clear:both; position:relative; z-index:100; height: 50px; }
+nav.mobile > ul							{ list-style: none; }
+nav.mobile > ul:after					{ content:"."; display:block; height:0; clear:both; zoom:1; visibility:hidden; }
+nav.mobile > ul > li					{ display:none; padding:2px 2px 0; margin: 0; background: #DEB407; }
+nav.mobile > ul:last-child				{ margin-bottom:5px; }
+nav.mobile a							{ display:block; padding:15px; color:#FFF; font-size:16px; line-height:18px; }
+nav.mobile > ul ul a					{ font-weight:normal; padding-left:30px; font-size: 14px; }
+nav.mobile ul.dropdown					{ list-style: none; }
+nav.mobile ul.dropdown > li				{ margin-left: 0; margin-top:1px; }
+#nav_toggle								{ display:block; margin:0; background: none; }
+#nav_toggle a							{ display:block; color:#FFF; height:48px; line-height:48px; font-size:17px; text-shadow: 1px 1px 0 #1d4b5e; background:url(/themes/mysite/images/hamburger.png) no-repeat left center; padding:0 0 0 45px; }
+#nav_toggle a:hover						{ text-decoration:none; text-shadow: 1px 2px 0 #1d4b5e; }
+
+
+@media (max-width:800px){
+	
+	#page_left						{ width:100%; float:none; }
+	#page_right						{ width:100%; float:none; min-height:0 !important; }
+	#rotating_images				{ max-width:320px; margin:0 auto 20px; }
+	.page_col						{ float:none; width:100%; margin:0; }
+	#form_page_left,
+	#form_page_right				{ float:none; width:100%; }
+}

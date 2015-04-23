@@ -1,0 +1,124 @@
+#form_page_left						{ width:50%; float:left; }
+#form_page_right					{ width:50%; float:right; }
+#form_full							{ width:700px; max-width:100%; margin:0px auto; clear:both; }
+
+.centeredForm						{ width: 90%; margin: 5% auto; }
+.formRight							{ width: 65%; float:right; clear:both; }		
+
+.formMessage						{ font-weight: bold; text-align: center; margin-bottom: 20px; }
+.formSubMessage						{ font-weight: bold; text-align: left; margin: 20px 0 5px 95px; }
+
+.form-error							{ border:2px solid #c00000; background:#f0f0f0; color:#c00000; padding:20px; font-size:16px; font-weight:bold; }
+
+div.required > label:after			{ content:" *"; color:#c00000; }
+
+div.field,
+.formAction							{ margin-bottom: 8px; }
+
+div.field:after						{ content:"."; display:block; height:0; clear:both; zoom:1; visibility:hidden; }
+
+div.field > label					{ width:30%; min-height:24px; padding-top:6px; line-height:18px; float:left; color:#353231; font-size:16px; display:block; text-align:right; margin:0px; }
+div.field > div						{ width:65%; min-height:30px; float:right; }
+
+span.readonly						{ display:block; width:auto; min-height:30px; padding-top:6px; line-height:18px; font-size:14px; color:#039; }
+
+div.field > div select,
+div.field > div textarea,
+div.field > div input[type=text],
+div.field > div input[type=number],
+div.field > div input[type=password]	{ width: 100%; height:auto; min-height:20px; padding:4px; border: 1px #ccc solid; color: #353231; font: normal 15px/15px Arial, sans-serif; margin-bottom: 2px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; 
+									-webkit-border-radius: 3px;
+									-moz-border-radius: 3px;
+									border-radius: 3px;
+									background: #ffffff; /* Old browsers */
+									background: -moz-linear-gradient(top,  #ffffff 0%, #efefef 100%); /* FF3.6+ */
+									background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#efefef)); /* Chrome,Safari4+ */
+									background: -webkit-linear-gradient(top,  #ffffff 0%,#efefef 100%); /* Chrome10+,Safari5.1+ */
+									background: -o-linear-gradient(top,  #ffffff 0%,#efefef 100%); /* Opera 11.10+ */
+									background: -ms-linear-gradient(top,  #ffffff 0%,#efefef 100%); /* IE10+ */
+									background: linear-gradient(to bottom,  #ffffff 0%,#efefef 100%); /* W3C */
+									filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#efefef',GradientType=0 ); /* IE6-9 */
+									-webkit-box-shadow: 1px 1px 2px rgba(50, 50, 50, 0.15);
+									-moz-box-shadow:    1px 1px 2px rgba(50, 50, 50, 0.15);
+									box-shadow:         1px 1px 2px rgba(50, 50, 50, 0.15);
+									}
+div.field > div input[type=text]:focus,
+div.field > div input[type=number]:focus,
+div.field > div input[type=password]:focus,
+div.field > div select:focus,
+div.field > div textarea:focus			{ 
+									-webkit-box-shadow: 1px 1px 2px rgba(50, 50, 50, 0.50);
+									-moz-box-shadow:    1px 1px 2px rgba(50, 50, 50, 0.50);
+									box-shadow:         1px 1px 2px rgba(50, 50, 50, 0.50);
+									}	
+div.field > div option					{ background:#FFF; }																		
+div.field > div textarea					{ resize:vertical; }
+div.field .optionset				{ list-style:none; margin:0; padding:0; }
+div.field .optionset li				{ margin:0; padding:0; }
+
+.currency							{ background:url(/themes/mysite/images/icons/money_dollar.png) no-repeat center left #ffffff !important; text-indent:15px !important; }
+
+.radio_input						{ float:left; width:auto; padding-right:30px; height:30px; line-height:30px; }
+.radio_input:last-child				{ padding-right:0px !important; }
+.radio_input input					{ margin:8px 5px 0px 0px !important; padding:0px !important; float:left !important; }
+.radio_input label					{ width:auto !important; clear:none !important; cursor:pointer; }
+
+.checkbox_ct > label				{ margin-bottom: -22px; margin-left: 30px; }
+/*.checkbox_ct > label:after			{ content:"."; display:block; height:0; clear:both; zoom:1; visibility:hidden; }*/
+.checkbox_ct > input				{ float: left; clear: both; }
+
+label.error							{ color:#c00000; }
+
+.message							{ text-align: center; font: bold 15px/15px Verdana, sans-serif; margin-bottom: 20px; }
+.message.good						{ color: #757c5d; }
+.message.bad						{ color: #892516; }
+
+.formAction input					{ color:#333; text-transform:uppercase; font-family:'Arial',sans-serif; outline:none; border:1px #999 solid; padding:8px 15px; 
+									-webkit-border-radius: 3px;
+									-moz-border-radius: 3px;
+									border-radius: 3px;
+									background: #ededed; /* Old browsers */
+									background: -moz-linear-gradient(top,  #ededed 0%, #cccccc 100%); /* FF3.6+ */
+									background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ededed), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+									background: -webkit-linear-gradient(top,  #ededed 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+									background: -o-linear-gradient(top,  #ededed 0%,#cccccc 100%); /* Opera 11.10+ */
+									background: -ms-linear-gradient(top,  #ededed 0%,#cccccc 100%); /* IE10+ */
+									background: linear-gradient(to bottom,  #ededed 0%,#cccccc 100%); /* W3C */
+									filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+									}
+.formAction input:hover				{ cursor:pointer; background: #CCC; }
+
+.middleColumn label				{ font-size:16px; }
+
+.stacked_input.col2				{ width:49%; float:left; margin-left:2%; }
+.stacked_input.col2:first-child	{ margin-left:0; }
+.stacked_input.col3				{ width:32%; float:left; margin-left:2%; }
+.stacked_input.col3:first-child	{ margin-left:0; }
+.stacked_input .sub_label		{ font-style:italic; margin:0; }
+.stacked_input .sub_label.required:after			{ content:" *"; color:#c00000; }
+.stacked_section				{ padding-top:25px; margin-top:25px; border-top:1px #CCC solid; }
+.stacked_section:first-child	{ padding:0; margin:0; border:none; }
+
+
+/* Headers */
+
+h3.form-header					{ clear:both; width:65%; float:right; padding:0 0 5px 0; margin:20px 0 5px 0; border-bottom:solid 1px #2b3966; }
+
+
+/* Responsive Code */
+
+@media(max-width: 600px){
+	
+	div.field > label					{ width:100% !important; padding-top:15px !important; line-height:18px; clear:both; text-align:left !important; }
+	div.field > div						{ width:100% !important; min-height:30px; float:left !important; clear:left !important; }
+	.formRight							{ width:100%; }
+		
+	h3.form-header						{ width:100% !important; float:left !important; margin-bottom:0px !important; }
+	.stacked_input .sub_label			{ overflow:hidden; white-space:nowrap; font-size:11px !important; }
+}
+
+@media(max-width: 430px){
+	.centeredForm						{ width:100% !important; }
+}
+
+

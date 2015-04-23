@@ -1,0 +1,18 @@
+/**
+ * This support file is used to style the WYSIWYG editor in the CMS
+ */
+ 
+@import "typography.css";
+@import "fonts.css";
+ 
+body.mceContentBody {
+	min-height: 200px;
+	background-color: #fff;
+}
+body.mceContentBody a.broken {
+	background-color: #FF7B71;
+	border: 1px red solid;
+}
+.clear {
+	clear: both;
+}

@@ -1,0 +1,8 @@
+.page_col						{ float:left; margin-left:2%; }
+.page_col:first-child			{ margin-left:0; }
+.cols_2							{ width:48%; }
+.cols_3							{ width:32%;  }
+#page_left						{ float:left; width:70%; }
+#page_right						{ float:right; width:27%; padding:2%; background:#e2e2e2; }
+#rotating_images				{ position: relative; width: 100%; height: auto; overflow: hidden; text-align: center; margin-bottom: 20px; }
+#rotating_images img			{ width: 100%; height: auto; position: absolute; top: 0; left: 0; }
