@@ -37,5 +37,5 @@ address								{ font-style:normal; }
 	
 .seo_title							{ margin: 0; padding: 0; text-indent: -999em; overflow: hidden; border: 0; }
 
-#IQLoginForm_LoginForm > fieldset > div		{ float:left; clear:left; width:90%; }
-#IQLoginForm_LoginForm > fieldset > div > label		{ width:85px; }
+#MemberLoginForm_LoginForm #Remember{ float:right; width:65%; }
+#MemberLoginForm_LoginForm #Remember label	{ width:auto; }
