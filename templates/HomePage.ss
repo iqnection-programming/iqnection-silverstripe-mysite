@@ -4,7 +4,7 @@
     
     <div id="main_wrap" class="wrap">
     	<div id="main">
-        	<div id="page_type" class="internal typography">
+        	<div id="page_type" class="home typography">
         		$Layout
             </div>
         </div><!--main-->

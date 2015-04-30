@@ -7,6 +7,9 @@ html								{ -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-s
 *, *:before, *:after				{ -moz-box-sizing: inherit; -webkit-box-sizing: inherit; box-sizing: inherit; }
 html, body, div, img, form          { margin: 0; padding: 0; border: 0; }
 table, tr, td, div                 	{ text-align: left; vertical-align: top; margin: 0; padding: 0; border: 0; }
+table, table *,
+table:before, table *:before,
+table:after, table *:after			{ -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
 html								{ overflow-y: scroll; }
 
 p, ul, ol, li                      	{ padding: 0; margin: 0; }
