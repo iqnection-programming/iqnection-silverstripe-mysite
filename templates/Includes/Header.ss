@@ -4,7 +4,7 @@
         <nav class="desktop" id="main_nav">
             <ul>
                 <% loop Menu(1) %>
-                    <li><a href="$Link" target="$Target" class="$LinkingMode" id="nav$Pos" $NavNoFollow>$MenuTitle</a><% include Dropdown %></li>
+                    <li><a href="$Link" target="$Target" class="$LinkingMode" id="nav$Pos" $NavNoFollow<% if $ClassName==HeadingPage %> heading="1"<% end_if %>>$MenuTitle</a><% include Dropdown %></li>
                 <% end_loop %>
             </ul>
         </nav>
