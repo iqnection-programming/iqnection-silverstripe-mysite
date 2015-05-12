@@ -7,6 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	$MetaTags(false)
+	<% if $MetaKeywords %>
+		<meta name="keywords" content="$MetaKeywords">
+	<% end_if %>
     <link rel="shortcut icon" href="/favicon.ico?v=1" />
     <link rel="canonical" href="$AbsoluteLink" />
     <% if SiteConfig.GoogleTrackingUniversal %><% include GA %><% end_if %>
