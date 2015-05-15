@@ -20,6 +20,7 @@ li                                 	{ padding: 0; margin: 0 0 0 20px; }
 a									{ text-decoration: none; }
 a[href]:hover						{ text-decoration: underline; }
 a:focus								{ outline: none; }
+a[href^=tel]:hover					{ text-decoration:none; cursor:text; }
 
 address								{ font-style:normal; }
 
