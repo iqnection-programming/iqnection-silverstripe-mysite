@@ -1,6 +1,7 @@
 /* Fancybox Fixes */
 .fancybox-lock .fancybox-overlay	{ overflow-y:hidden !important; }
 html,body							{ margin:0 !important; padding:0 !important; }
+.fancybox-nav						{ max-width:80px; }
 /* Fancybox Fixes */
 
 html								{ -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }

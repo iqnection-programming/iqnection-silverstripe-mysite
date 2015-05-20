@@ -1,4 +1,4 @@
-.typography							{ font-size:12px; line-height:17px; }
+.typography							{ font-size:16px; line-height:24px; }
 .typography	*						{ color: #444; }
 
 /** CMS LIST STYLES **/
@@ -19,12 +19,12 @@
 .typography h5,.typography h5 strong,.typography h5 em,
 .typography h6,.typography h6 strong,.typography h6 em			{ margin: 0 0 12px 0; padding: 0; font-family: Tahoma, Arial, sans-serif; font-weight: bold; color: #353231; }
 
-.typography h1,.typography h1 strong,.typography h1 em 			{ font-size: 28px; line-height: 28px; }
-.typography h2,.typography h2 strong,.typography h2 em 			{ font-size: 24px; line-height: 24px; }
-.typography h3,.typography h3 strong,.typography h3 em			{ font-size: 20px; line-height: 20px; }
-.typography h4,.typography h4 strong,.typography h4 em 			{ font-size: 18px; line-height: 18px; }
-.typography h5,.typography h5 strong,.typography h5 em			{ font-size: 16px; line-height: 16px; }
-.typography h6,.typography h6 strong,.typography h6 em			{ font-size: 13px; line-height: 13px; }
+.typography h1,.typography h1 strong,.typography h1 em 			{ font-size: 28px; line-height: 32px; }
+.typography h2,.typography h2 strong,.typography h2 em 			{ font-size: 24px; line-height: 28px; }
+.typography h3,.typography h3 strong,.typography h3 em			{ font-size: 20px; line-height: 24px; }
+.typography h4,.typography h4 strong,.typography h4 em 			{ font-size: 18px; line-height: 22px; }
+.typography h5,.typography h5 strong,.typography h5 em			{ font-size: 16px; line-height: 18px; }
+.typography h6,.typography h6 strong,.typography h6 em			{ font-size: 13px; line-height: 15px; }
 
 .typography blockquote				{ background: #f2efed; border: 1px #757c5d solid; padding: 10px; }
 
