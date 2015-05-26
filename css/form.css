@@ -17,7 +17,7 @@ div.field								{ margin-bottom: 8px; }
 
 div.field:after							{ content:"."; display:block; height:0; clear:both; zoom:1; visibility:hidden; }
 
-div.field > label						{ width:30%; min-height:24px; padding-top:6px; line-height:18px; float:left; color:#353231; font-size:16px; display:block; text-align:right; margin:0px; }
+div.field > label						{ width:30%; min-height:24px; padding-top:6px; line-height:18px; float:left; color:#353231; font-size:16px; display:block; text-align:right !important; margin:0px; }
 div.field > div,
 .Actions								{ width:65%; min-height:30px; float:right; }
 
