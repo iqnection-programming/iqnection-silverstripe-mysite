@@ -14,11 +14,12 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			'eventAction': action,
 			'eventLabel': opt_label
 		};
-		ga('send', 'event', params);
 		if(is_tel){
 			//onClick="return recordOutboundLink(this,'Phone Call Links','Call','Header Phone Link',true);"
+			if (screen.width <= 500) ga('send', 'event', params);
 			return true;
 		} else {
+			ga('send', 'event', params);
 			setTimeout('document.location = "' + link.href + '"', 100);
 		}		
 	} 
