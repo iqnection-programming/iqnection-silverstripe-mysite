@@ -1,7 +1,10 @@
 // JavaScript Document
-
+$(":root").addClass('js');
 $(document).ready(function(){
-
+	$(window).load(function(){
+		$(":root").addClass('done');
+		fixAllHeights();
+	});
 /*
 	setupFormField("#SearchForm_SearchFor", "Search");
 
@@ -22,10 +25,6 @@ $(document).ready(function(){
 });
 
 $(window).resize(function(){
-	fixAllHeights();
-});
-
-$(window).load(function(){
 	fixAllHeights();
 });
 

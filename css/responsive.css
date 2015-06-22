@@ -8,16 +8,17 @@ nav.mobile > ul ul a					{ font-weight:normal; padding-left:30px; font-size: 14p
 nav.mobile ul.dropdown					{ list-style: none; }
 nav.mobile ul.dropdown > li				{ margin-left: 0; margin-top:1px; }
 #nav_toggle								{ display:block; margin:0; background: none; }
-#nav_toggle a							{ display:block; color:#FFF; height:48px; line-height:48px; font-size:17px; text-shadow: 1px 1px 0 #1d4b5e; background:url(/themes/mysite/images/hamburger.png) no-repeat left center; padding:0 0 0 45px; }
+#nav_toggle:before						{ content: ''; position: absolute; width: 17px; border-radius: 1px; background: #fff; height: 2px; top: 23px; left: 20px; box-shadow: 0 0 0 1px #FFF,0px 7px 0px 1px #FFF,0px -7px 0px 1px #FFF; }
+#nav_toggle a							{ display:block; color:#FFF; height:48px; line-height:48px; font-size:17px; text-shadow: 1px 1px 0 #1d4b5e; /*background:url(/themes/mysite/images/hamburger.png) no-repeat left center;*/ padding:0 0 0 45px; }
 #nav_toggle a:hover						{ text-decoration:none; text-shadow: 1px 2px 0 #1d4b5e; }
 
 
 @media (max-width:800px){
 	
-	#page_left						{ width:100%; float:none; }
-	#page_right						{ width:100%; float:none; min-height:0 !important; }
-	#rotating_images				{ max-width:320px; margin:0 auto 20px; }
-	.page_col						{ float:none; width:100%; margin:0; }
+	#page_left							{ width:100%; float:none; }
+	#page_right							{ width:100%; float:none; min-height:0 !important; }
+	#rotating_images					{ max-width:320px; margin:0 auto 20px; }
+	.page_col							{ float:none; width:100%; margin:0; }
 	#form_page_left,
-	#form_page_right				{ float:none; width:100%; }
+	#form_page_right					{ float:none; width:100%; }
 }
