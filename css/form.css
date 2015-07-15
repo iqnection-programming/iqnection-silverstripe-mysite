@@ -30,10 +30,11 @@ div.field > div input[type=email],
 div.field > div input[type=number],
 div.field > div input[type=password]	{ width: 100%; height:auto; min-height:43px; padding:10px; border: 1px #ccc solid; color: #353231; font: normal 15px/15px Arial, sans-serif; margin-bottom: 2px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
 div.field > div input[type=text]:focus,
+div.field > div input[type=email]:focus,
 div.field > div input[type=number]:focus,
 div.field > div input[type=password]:focus,
 div.field > div select:focus,
-div.field > div textarea:focus			{ border-color:#999; }	
+div.field > div textarea:focus			{ border-color:#999; outline:none; box-shadow:0 0 3px 1px #999; }	
 div.field > div option					{ background:#FFF; }																		
 div.field > div textarea				{ resize:vertical; }
 div.field .optionset					{ list-style:none; margin:0; padding:0; }
@@ -56,7 +57,8 @@ label.error								{ color:#c00000; }
 .message.bad							{ color: #892516; }
 
 .Actions input							{ color:#FFF; font-size:16px; font-family:'Arial',sans-serif; outline:none; border:none; outline:none; padding:8px 15px; background:#001940; }
-.Actions input:hover					{ cursor:pointer; background: #03337E; }
+.Actions input:hover,
+.Actions input:focus					{ cursor:pointer; background: #03337E; }
 
 .middleColumn label						{ font-size:16px; }
 
