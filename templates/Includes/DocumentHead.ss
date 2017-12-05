@@ -18,5 +18,8 @@
     <script src="/themes/mysite/javascript/html5shiv.js"></script>
     <script src="/themes/mysite/javascript/html5shiv-printshiv.js"></script>
     <![endif]-->
+	<% if $SiteConfig.AdditionalHeaderCode.Exists %>
+		$SiteConfig.AdditionalHeaderCode.RAW
+	<% end_if %>
 </head>
 <body>

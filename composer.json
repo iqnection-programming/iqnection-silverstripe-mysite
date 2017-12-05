@@ -11,9 +11,7 @@
         }
     ],
     "require": {
-        "composer/installers": "*",
-        "silverstripe/framework": ">=3.0",
-		"iqnection-modules/seo":"*"
+        "silverstripe/framework": "4.*"
     },
 	"config": {
 		"process-timeout": 600

@@ -1,4 +1,4 @@
-.typography							{ font-size:16px; line-height:24px; }
+.typography							{ font-size:16px; line-height:1.6em; }
 .typography	*						{ color: #444; }
 
 /** CMS LIST STYLES **/
@@ -17,14 +17,14 @@
 .typography h3,.typography h3 strong,.typography h3 em,
 .typography h4,.typography h4 strong,.typography h4 em,
 .typography h5,.typography h5 strong,.typography h5 em,
-.typography h6,.typography h6 strong,.typography h6 em			{ margin: 0 0 12px 0; padding: 0; font-family: Tahoma, Arial, sans-serif; font-weight: bold; color: #353231; }
+.typography h6,.typography h6 strong,.typography h6 em			{ margin: 0 0 12px 0; padding: 0; font-weight: bold; color: #353231; }
 
-.typography h1,.typography h1 strong,.typography h1 em 			{ font-size: 28px; line-height: 32px; }
-.typography h2,.typography h2 strong,.typography h2 em 			{ font-size: 24px; line-height: 28px; }
-.typography h3,.typography h3 strong,.typography h3 em			{ font-size: 20px; line-height: 24px; }
-.typography h4,.typography h4 strong,.typography h4 em 			{ font-size: 18px; line-height: 22px; }
-.typography h5,.typography h5 strong,.typography h5 em			{ font-size: 16px; line-height: 18px; }
-.typography h6,.typography h6 strong,.typography h6 em			{ font-size: 13px; line-height: 15px; }
+.typography h1,.typography h1 strong,.typography h1 em 			{ font-size: 28px; line-height: 1.1em; }
+.typography h2,.typography h2 strong,.typography h2 em 			{ font-size: 24px; line-height: 1.16em; }
+.typography h3,.typography h3 strong,.typography h3 em			{ font-size: 20px; line-height: 1.2em; }
+.typography h4,.typography h4 strong,.typography h4 em 			{ font-size: 18px; line-height: 1.2em; }
+.typography h5,.typography h5 strong,.typography h5 em			{ font-size: 16px; line-height: 1.125em; }
+.typography h6,.typography h6 strong,.typography h6 em			{ font-size: 13px; line-height: 1.15em; }
 
 .typography blockquote				{ background: #f2efed; border: 1px #757c5d solid; padding: 10px; }
 
@@ -48,15 +48,22 @@
 .typography img.left				{ float: left; margin: 0 15px 5px 0; }
 .typography img.center				{ display:block; margin: 0 auto 5px; }
 
-.typography .captionImage img		{ padding: 0; }
+.typography .captionImage			{ max-width:100%; }
+.typography .captionImage img		{ padding: 0; max-width:100%; height:auto !important; }
 .typography .captionImage p			{ margin: 0; font: bold 10px/14px Arial, sans-serif; }
 .typography .captionImage.left		{ float: left; margin: 0 10px 5px 0; padding: 5px; background: #e8e8e8; text-align: center; }
 .typography .captionImage.right		{ float: right; margin: 0 0 5px 10px; padding: 5px; background: #e8e8e8; text-align: center; }
 .typography .captionImage.center	{ display:block; margin: 0 auto 5px; }
 
+.typography iframe					{ max-width:100%; }
 
 .right form .field label {
 	color: #555 !important; font: bold 14px/19px Arial, sans-serif !important;
 }
 
 .right form .field .sort-control label	{ font-weight:normal !important; font-size:11px !important; }
+
+@media (max-width:500px){
+	.typography img					{ display:block; float:none !important; margin-left:auto !important; margin-right:auto !important; }
+	.typography blockquote			{ margin-left:10px; margin-right:10px; }
+}

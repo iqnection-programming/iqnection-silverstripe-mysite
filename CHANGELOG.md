@@ -1,6 +1,9 @@
-## Package: iqnection-silverstripe-3-mysite
+## Package: iqnection-silverstripe-mysite
 # Change Log
 
+## [2.0.0]
+- Requires SilverStripe 4+
+- 2nd attempt at using composer to install our base theme
 
 ## [1.0.2]
 - removed robots.txt, in the wrong package

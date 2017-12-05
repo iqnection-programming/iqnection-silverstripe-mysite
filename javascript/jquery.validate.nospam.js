@@ -89,7 +89,9 @@ $.extend($.fn, {
 								parseInt(validator.settings.trackFormSubmit.value),
 								false
 							);
-							validator.nospam.submit( validator.currentForm );
+							setTimeout(function(){
+								validator.nospam.submit( validator.currentForm );
+							},100);
 						}
 						else
 						{
@@ -338,7 +340,7 @@ $.extend($.validator, {
 			this.reset();
 
 			this.nospam = {
-				"submit": function(form){
+				"submit": function(form,haltFormSubmit){
 					var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
 					var string_length = 8;
 					var randomstring = '';
@@ -348,8 +350,8 @@ $.extend($.validator, {
 					}
 					var currentDate = new Date();
 					var code1 = randomstring+"."+currentDate.getTime();
-					
-					$.get('nospam_ajax.php?generate_code='+code1+'&id='+form.id, function(data){
+					$('input[name=nospam_codes]').remove();
+					var success=$.get('nospam_ajax.php?generate_code='+code1+'&id='+form.id, function(data){
 						var results = data.split("|");
 						var code2 = results[0];
 						var form_id = results[1];
@@ -357,15 +359,16 @@ $.extend($.validator, {
 						if (code2 && form_id)
 						{
 							$("#"+form_id).append('<input type="hidden" name="nospam_codes" value="'+code1+'|'+code2+'" />');
-							document.getElementById(form_id).submit();
+							if (!haltFormSubmit) document.getElementById(form_id).submit();
 														
 							return true;					
 						}
 						return false;
 					});
-					return false;
+					return (haltFormSubmit) ? success : false;
 				}
 			};
+
 
 			var groups = (this.groups = {});
 			$.each(this.settings.groups, function( key, value ) {

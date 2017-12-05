@@ -6,10 +6,10 @@
     <% require themedCSS("layout") %>
     <% require themedCSS("typography") %>
     <% require themedCSS("responsive") %>
-    <% require javascript("themes/mysite/javascript/jquery-1.9.1.min.js") %>
-    <% require javascript("themes/mysite/javascript/dropdowns.js") %>
-    <% require javascript("themes/mysite/javascript/responsive.js") %>
-    <% require javascript("themes/mysite/javascript/scripts.js") %>
+    <% require themedJavascript("jquery-1.9.1.min") %>
+    <% require themedJavascript("responsive") %>
+    <% require themedJavascript("navigation") %>
+    <% require themedJavascript("scripts") %>
 
     <% include Header %>
     
