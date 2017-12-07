@@ -24,12 +24,6 @@
 			}
 		},1000);
 		
-		// increase the main_wrap height until we fit the screen
-		w.addResponsiveAdjustment(function(){
-			var wraps=0;
-			$("#header_wrap,#nav_wrap,#footer_wrap").each(function(){wraps+=$(this).outerHeight(true);});
-			$("#main_wrap").css('min-height', ($(w).height() - wraps)+'px' );
-		});
 	/*
 		setupFormField("#SearchForm_SearchFor", "Search");
 	

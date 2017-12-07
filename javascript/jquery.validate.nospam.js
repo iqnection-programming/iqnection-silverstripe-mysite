@@ -351,7 +351,7 @@ $.extend($.validator, {
 					var currentDate = new Date();
 					var code1 = randomstring+"."+currentDate.getTime();
 					$('input[name=nospam_codes]').remove();
-					var success=$.get('nospam_ajax.php?generate_code='+code1+'&id='+form.id, function(data){
+					var success=$.get('nospam/generate_code?code='+code1+'&id='+form.id, function(data){
 						var results = data.split("|");
 						var code2 = results[0];
 						var form_id = results[1];

@@ -20,7 +20,8 @@ div.field:after							{ content:"."; display:block; height:0; clear:both; zoom:1
 
 div.field > label						{ width:30%; min-height:24px; padding-top:6px; line-height:18px; float:left; color:#353231; font-size:16px; display:block; text-align:right !important; margin:0px; }
 div.field > div,
-.Actions								{ width:65%; min-height:30px; float:right; }
+.Actions,
+.btn-toolbar							{ width:65%; min-height:30px; float:right; }
 div.field > .description				{ display:block; margin-left:35%; font-size:0.9em; }
 
 span.readonly							{ display:block; width:auto; min-height:30px; padding-top:6px; line-height:18px; font-size:14px; color:#039; }
@@ -64,9 +65,12 @@ label.error								{ color:#c00000; }
 .message.good							{ color: #757c5d; }
 .message.bad							{ color: #892516; }
 
-.Actions input							{ color:#FFF; font-size:16px; outline:none; border:none; padding:8px 15px; background:#001940; margin-bottom:3px; }
+.Actions input,
+.btn-toolbar input						{ color:#FFF; font-size:16px; outline:none; border:none; padding:8px 15px; background:#001940; margin-bottom:3px; }
 .Actions input:hover,
-.Actions input:focus					{ cursor:pointer; background: #03337E; }
+.Actions input:focus,
+.btn-toolbar input:hover,
+.btn-toolbar input:focus				{ cursor:pointer; background: #03337E; }
 
 .middleColumn label						{ font-size:16px; }
 
@@ -100,11 +104,12 @@ h3.form-header							{ clear:both; width:65%; float:right; padding:0 0 5px 0; ma
 		
 	h3.form-header						{ width:100% !important; float:left !important; margin-bottom:0px !important; }
 	.stacked input.required + label.right			{ overflow:hidden; white-space:nowrap; font-size:11px !important; }
+	.Actions,
+	.btn-toolbar						{ width:100%; float:none; }
 }
 
 @media(max-width: 430px){
 	.centeredForm						{ width:100% !important; }
-	.Actions							{ width:100%; float:none; }
 }
 
 
