@@ -1,6 +1,9 @@
 ## Package: iqnection-silverstripe-mysite
 # Change Log
 
+## [2.0.2]
+- just syncing versions
+
 ## [2.0.1]
 - added BetterNavigator requirement
 
