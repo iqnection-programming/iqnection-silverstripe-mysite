@@ -11,8 +11,9 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "4.*",
-		"iqnection-modules/socialmedia" : "2.0.*"
+        "silverstripe/framework": "^4.0",
+		"iqnection-modules/socialmedia" : "^2.0",
+		"jonom/silverstripe-betternavigator": "^4.0"
     },
 	"config": {
 		"process-timeout": 600

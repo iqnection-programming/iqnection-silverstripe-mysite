@@ -1,6 +1,9 @@
 ## Package: iqnection-silverstripe-mysite
 # Change Log
 
+## [2.0.1]
+- added BetterNavigator requirement
+
 ## [2.0.0]
 - Requires SilverStripe 4+
 - 2nd attempt at using composer to install our base theme
