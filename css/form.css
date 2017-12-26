@@ -93,6 +93,11 @@ h3.form-header							{ clear:both; width:65%; float:right; padding:0 0 5px 0; ma
 
 .ui-widget								{ z-index:500 !important; }
 
+@media (max-width:800px){
+	#form_page_left,
+	#form_page_right					{ float:none; width:100%; }
+}
+
 @media(max-width: 600px){
 	
 	div.field > label					{ width:100% !important; padding-top:15px !important; line-height:18px; clear:both; text-align:left !important; }

@@ -1,6 +1,9 @@
 ## Package: iqnection-silverstripe-mysite
 # Change Log
 
+## [2.0.3]
+- moved some form styling into appropriate forms.css file
+
 ## [2.0.2]
 - just syncing versions
 
