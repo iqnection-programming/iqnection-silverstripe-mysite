@@ -1,6 +1,10 @@
 ## Package: iqnection-silverstripe-mysite
 # Change Log
 
+## [2.0.4]
+- Added Angies List social icon
+- Now includes jquery.touchSwipe.js in base theme, to use where you please
+
 ## [2.0.3]
 - moved some form styling into appropriate forms.css file
 

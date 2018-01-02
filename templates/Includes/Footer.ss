@@ -22,6 +22,7 @@
 			<% include SocialIcons Icon=Vimeo %>
 			<% include SocialIcons Icon=Yelp %>
 			<% include SocialIcons Icon=Tumblr %>
+			<% include SocialIcons Icon=AngiesList %>
         </ul><!--social-->
         <p id="copyright">
             Copyright &copy; $CopyrightYear $CopyrightName<br />
