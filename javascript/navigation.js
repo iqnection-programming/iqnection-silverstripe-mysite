@@ -2,7 +2,7 @@ var main_nav = "#nav_wrap nav";
 var touchbound = false;
 
 // Pixel width where nav toggles desktop/mobile
-var break_point = 900;
+var break_point = 1024;
 
 // for hamburger flyout nav, which side will it be located
 var flyout_side = 'right';
@@ -72,16 +72,26 @@ var width_fix = 1;
 			w.closeMobileNav();
 		});
 	};
-	
+	var touched=false;
 	w.setupDesktopNav = function(){	
-		$(main_nav).each(function(){
+		$(w.main_nav).each(function(){
 			$(this).find('li').each(function() {
 				// First we clear off mobile click if present
-				$(this).find('> a').unbind('click');
+				$(this).find('> a').unbind('click touchstart')
+					.bind('touchstart',function(e){
+						touched=true;
+						return;
+					}).bind('click',function(e){
+						if((touched)&&($(this).parents('li').first().find('.dropdown').length)){
+							e.preventDefault();
+						}
+						touched=false;
+						return;
+					});
 				$(this).mouseover(function() {				
-					if (!touchbound) { w.showDesktopNavDropdown($(this)); }
+					w.showDesktopNavDropdown($(this));
 				}).mouseout(function() {
-					if (!touchbound) { w.hideDesktopNavDropdown($(this)); }
+					w.hideDesktopNavDropdown($(this));
 				});
 			});
 		});		
