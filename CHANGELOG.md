@@ -1,6 +1,9 @@
 ## Package: iqnection-silverstripe-mysite
 # Change Log
 
+## [2.0.5]
+- moved base page responsive css to iq-basepages module
+
 ## [2.0.4]
 - Added Angies List social icon
 - Now includes jquery.touchSwipe.js in base theme, to use where you please
