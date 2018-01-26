@@ -19,14 +19,16 @@
 .typography h5,.typography h5 strong,.typography h5 em,
 .typography h6,.typography h6 strong,.typography h6 em			{ margin: 0 0 12px 0; padding: 0; font-weight: bold; color: #353231; }
 
-.typography h1,.typography h1 strong,.typography h1 em 			{ font-size: 28px; line-height: 1.1em; }
-.typography h2,.typography h2 strong,.typography h2 em 			{ font-size: 24px; line-height: 1.16em; }
-.typography h3,.typography h3 strong,.typography h3 em			{ font-size: 20px; line-height: 1.2em; }
-.typography h4,.typography h4 strong,.typography h4 em 			{ font-size: 18px; line-height: 1.2em; }
-.typography h5,.typography h5 strong,.typography h5 em			{ font-size: 16px; line-height: 1.125em; }
-.typography h6,.typography h6 strong,.typography h6 em			{ font-size: 13px; line-height: 1.15em; }
+.typography h1,.typography h1 strong,.typography h1 em 			{ font-size: 40px; line-height: 1.1em; }
+.typography h2,.typography h2 strong,.typography h2 em 			{ font-size: 30px; line-height: 1.16em; }
+.typography h3,.typography h3 strong,.typography h3 em			{ font-size: 24px; line-height: 1.2em; }
+.typography h4,.typography h4 strong,.typography h4 em 			{ font-size: 20px; line-height: 1.2em; }
+.typography h5,.typography h5 strong,.typography h5 em			{ font-size: 18px; line-height: 1.125em; }
+.typography h6,.typography h6 strong,.typography h6 em			{ font-size: 15px; line-height: 1.15em; }
 
 .typography blockquote				{ background: #f2efed; border: 1px #757c5d solid; padding: 10px; }
+
+p.text-clear						{ clear:both; }
 
 /* LINK STYLES */
 .typography a 						{ color: #156d9f !important; }

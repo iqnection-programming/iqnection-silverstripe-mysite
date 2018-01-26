@@ -1,6 +1,9 @@
 ## Package: iqnection-silverstripe-mysite
 # Change Log
 
+## [2.0.6]
+- increased default heading sizes
+
 ## [2.0.5]
 - moved base page responsive css to iq-basepages module
 
