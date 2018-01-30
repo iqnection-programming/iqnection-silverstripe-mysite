@@ -12,14 +12,15 @@
 	<% end_if %>
     <link rel="shortcut icon" href="/favicon.ico?v=1" />
     <link rel="canonical" href="$AbsoluteLink" />
-    <% if SiteConfig.GoogleTrackingUniversal %><% include GA %><% end_if %>
-    <% if SiteConfig.GoogleTrackingOld %><% include GA_old %><% end_if %>
+	<% if $SiteConfig.AdditionalHeaderCode.Exists %>
+		$SiteConfig.AdditionalHeaderCode.RAW
+	<% end_if %>
+	<% if $SiteConfig.GoogleTagManagerHeadCode %>$SiteConfig.GoogleTagManagerHeadCode.RAW<% end_if %>
+    <% if $SiteConfig.GoogleTrackingUniversal %><% include GA %><% end_if %>
     <!--[if lt IE 9]>
     <script src="/themes/mysite/javascript/html5shiv.js"></script>
     <script src="/themes/mysite/javascript/html5shiv-printshiv.js"></script>
     <![endif]-->
-	<% if $SiteConfig.AdditionalHeaderCode.Exists %>
-		$SiteConfig.AdditionalHeaderCode.RAW
-	<% end_if %>
 </head>
 <body>
+<% if $SiteConfig.GoogleTagManagerBodyCode %>$SiteConfig.GoogleTagManagerBodyCode.RAW<% end_if %>

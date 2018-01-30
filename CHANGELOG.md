@@ -1,6 +1,9 @@
 ## Package: iqnection-silverstripe-mysite
 # Change Log
 
+## [2.0.7]
+- Added Google Tag Manager code for iqnection-modules/seo
+
 ## [2.0.6]
 - increased default heading sizes
 
