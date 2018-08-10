@@ -1,6 +1,9 @@
 ## Package: iqnection-silverstripe-mysite
 # Change Log
 
+## [2.1.0]
+- updated to follow SS 4.1 /public/ directory structure
+
 ## [2.0.7]
 - Added Google Tag Manager code for iqnection-modules/seo
 
