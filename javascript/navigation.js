@@ -234,7 +234,7 @@ var width_fix = 1;
 							if($(this).find('>.dropdown').length){
 								a_tag.addClass('hc');
 								// add the duplicate nav item as a child, but only if not heading page
-								if((!$(this).find('>.dropdown').children('.mobile_top').length)&&(!a_tag.attr('heading'))){$(this).find('>.dropdown').first().prepend('<li class="mobile_top"><a href="'+a_tag.attr('href')+'">'+a_tag.html()+'</a></li>');}
+								if((!$(this).find('>.dropdown').children('.mobile_top').length)&&(!a_tag.attr('data-is-heading'))){$(this).find('>.dropdown').first().prepend('<li class="mobile_top"><a href="'+a_tag.attr('href')+'">'+a_tag.html()+'</a></li>');}
 								a_tag.unbind('click mouseout mouseover').click(function(e) {
 									e.preventDefault();
 									// reset all other nav items

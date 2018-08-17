@@ -1,5 +1,8 @@
-#form_page_left							{ width:45%; float:left; }
-#form_page_right						{ width:50%; float:right; }
+#form-page-layout						{ display:flex; justify-content:space-between; align-items:flex-start; }
+#form-page-layout > *					{ display:block; width:100%; }
+#form_page_left							{ max-width:45%; }
+#form_page_right						{ max-width:50%; }
+
 .form_full								{ width:700px; max-width:100%; margin:0px auto; clear:both; }
 .form_full:after						{ content:"."; display:block; height:0; clear:both; zoom:1; visibility:hidden; }
 
@@ -94,8 +97,9 @@ h3.form-header							{ clear:both; width:65%; float:right; padding:0 0 5px 0; ma
 .ui-widget								{ z-index:500 !important; }
 
 @media (max-width:800px){
+	#form-page-layout					{ flex-direction:column; }
 	#form_page_left,
-	#form_page_right					{ float:none; width:100%; }
+	#form_page_right					{ max-width:none; }
 }
 
 @media(max-width: 600px){

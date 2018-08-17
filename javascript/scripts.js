@@ -65,7 +65,6 @@
 	
 	w.fixAllHeights = function(){
 		w.fixHeights({selector:'.parent_sameheight', method:'parent'});
-		w.fixHeights({selector:'.internal #page_right', method:'parent'});
 		w.fixHeights({selector:'.sameheight', method:'match'});	
 	};
 	

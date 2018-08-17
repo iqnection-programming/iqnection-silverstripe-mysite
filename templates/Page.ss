@@ -2,8 +2,8 @@
 
     <% include Header %>
     
-    <div id="main_wrap" class="wrap">
-    	<div id="main">
+    <div id="main-wrap" class="wrap">
+    	<div id="main" class="inside">
         	<div id="page_type" class="internal typography">
         		$Layout
             </div>
