@@ -1,5 +1,6 @@
-#form-page-layout						{ display:flex; justify-content:space-between; align-items:flex-start; }
-#form-page-layout > *					{ display:block; width:100%; }
+#form-page-layout						{ display:flex; justify-content:space-between; align-items:flex-start; 
+	> *					{ display:block; width:100%; }
+}
 #form_page_left							{ max-width:45%; }
 #form_page_right						{ max-width:50%; }
 
@@ -8,8 +9,6 @@
 
 fieldset								{ border:none; padding:0; margin:0; width:100%; }
 
-.formRight								{ width: 65%; float:right; clear:both; }		
-
 .formMessage							{ font-weight: bold; text-align: center; margin-bottom: 20px; }
 .formSubMessage							{ font-weight: bold; text-align: left; margin: 20px 0 5px 95px; }
 
@@ -17,34 +16,33 @@ fieldset								{ border:none; padding:0; margin:0; width:100%; }
 
 div.required > label:after				{ content:" *"; color:#c00000; margin-right:-10px; font-size:0.8em; }
 
-div.field								{ margin-bottom: 8px; }
+div.field								{ margin-bottom: 8px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;
+	> *									{ display:block; width:100%; }
+	> label								{ max-width:30%; line-height:18px; color:#353231; text-align:right; margin:0px; padding-top:10px; }
+	> .description						{ display:block; margin-left:35%; font-size:0.9em; max-width:65%; }
+	> div 								{ max-width:65%; min-height:30px; 
+		select,
+		textarea,
+		input[type=text],
+		input[type=email],
+		input[type=number],
+		input[type=password]			{ width: 100%; height:auto; min-height:43px; padding:10px; border: 1px #ccc solid; color: #353231; font: normal 15px/15px Arial, sans-serif; margin-bottom: 2px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
 
-div.field:after							{ content:"."; display:block; height:0; clear:both; zoom:1; visibility:hidden; }
-
-div.field > label						{ width:30%; min-height:24px; padding-top:6px; line-height:18px; float:left; color:#353231; font-size:16px; display:block; text-align:right !important; margin:0px; }
-div.field > div,
-.Actions,
-.btn-toolbar							{ width:65%; min-height:30px; float:right; }
-div.field > .description				{ display:block; margin-left:35%; font-size:0.9em; }
+		input[type=text]:focus,
+		input[type=email]:focus,
+		input[type=number]:focus,
+		input[type=password]:focus,
+		select:focus,
+		textarea:focus					{ border-color:#999; outline:none; box-shadow:0 0 3px 1px #999; }	
+		
+		option							{ background:#FFF; }																		
+		textarea						{ resize:vertical; }
+		.optionset						{ list-style:none; margin:0; padding:0; }
+		.optionset li					{ margin:0; padding:0; }
+	}
+}
 
 span.readonly							{ display:block; width:auto; min-height:30px; padding-top:6px; line-height:18px; font-size:14px; color:#039; }
-
-div.field > div select,
-div.field > div textarea,
-div.field > div input[type=text],
-div.field > div input[type=email],
-div.field > div input[type=number],
-div.field > div input[type=password]	{ width: 100%; height:auto; min-height:43px; padding:10px; border: 1px #ccc solid; color: #353231; font: normal 15px/15px Arial, sans-serif; margin-bottom: 2px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
-div.field > div input[type=text]:focus,
-div.field > div input[type=email]:focus,
-div.field > div input[type=number]:focus,
-div.field > div input[type=password]:focus,
-div.field > div select:focus,
-div.field > div textarea:focus			{ border-color:#999; outline:none; box-shadow:0 0 3px 1px #999; }	
-div.field > div option					{ background:#FFF; }																		
-div.field > div textarea				{ resize:vertical; }
-div.field .optionset					{ list-style:none; margin:0; padding:0; }
-div.field .optionset li					{ margin:0; padding:0; }
 
 input.currency							{ background:url(/themes/mysite/images/icons/money_dollar.png) no-repeat center left #ffffff !important; text-indent:15px !important; }
 
@@ -68,12 +66,13 @@ label.error								{ color:#c00000; }
 .message.good							{ color: #757c5d; }
 .message.bad							{ color: #892516; }
 
-.Actions input,
-.btn-toolbar input						{ color:#FFF; font-size:16px; outline:none; border:none; padding:8px 15px; background:#001940; margin-bottom:3px; }
-.Actions input:hover,
-.Actions input:focus,
-.btn-toolbar input:hover,
-.btn-toolbar input:focus				{ cursor:pointer; background: #03337E; }
+.Actions,
+.btn-toolbar							{ margin-left:35%;
+	input								{ color:#FFF; font-size:16px; outline:none; border:none; padding:8px 15px; background:#001940; margin-bottom:3px; 
+		&:hover,
+		&:focus							{ cursor:pointer; background: #03337E; }
+	}
+}
 
 .middleColumn label						{ font-size:16px; }
 
@@ -104,17 +103,19 @@ h3.form-header							{ clear:both; width:65%; float:right; padding:0 0 5px 0; ma
 
 @media(max-width: 600px){
 	
-	div.field > label					{ width:100% !important; padding-top:15px !important; line-height:18px; clear:both; text-align:left !important; }
-	div.field > div						{ width:100% !important; min-height:30px; float:left !important; clear:left !important; margin-left:0 !important; }
-	.formRight							{ width:100%; }
+	div.field							{
+		> *								{ max-width:none !important; text-align:left !important; }
+	}
 
-	div.checkbox > input				{ margin-left:0; float:left; }
-	div.checkbox > label				{ padding-top:0px !important; float:none; clear:none; padding-left:20px; }
+	div.checkbox						{
+		> input							{ margin-left:0; float:left; }
+		> label							{ padding-top:0px !important; float:none; clear:none; padding-left:20px; }
+	}
 		
 	h3.form-header						{ width:100% !important; float:left !important; margin-bottom:0px !important; }
 	.stacked input.required + label.right			{ overflow:hidden; white-space:nowrap; font-size:11px !important; }
 	.Actions,
-	.btn-toolbar						{ width:100%; float:none; }
+	.btn-toolbar						{ margin-left:0; }
 }
 
 @media(max-width: 430px){

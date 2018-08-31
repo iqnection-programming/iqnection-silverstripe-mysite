@@ -1,6 +1,9 @@
 ## Package: iqnection-silverstripe-mysite
 # Change Log
 
+## [2.2.0]
+- changed to SCSS
+
 ## [2.1.0]
 - updated to follow SS 4.1 /public/ directory structure
 

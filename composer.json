@@ -13,7 +13,8 @@
     "require": {
         "silverstripe/framework": "^4.1",
 		"iqnection-modules/socialmedia" : "^2.0",
-		"jonom/silverstripe-betternavigator": "^4.0"
+		"jonom/silverstripe-betternavigator": "^4.0",
+		"axllent/silverstripe-scss": "^1.0"
     },
 	"config": {
 		"process-timeout": 600

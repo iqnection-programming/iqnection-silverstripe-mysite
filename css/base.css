@@ -26,18 +26,11 @@ a[href^=tel]:hover					{ text-decoration:none; cursor:text; }
 address								{ font-style:normal; }
 
 .clear								{ clear: both; }
-.left								{ float: left; margin: 0 15px 5px 0; }
-.right								{ float: right; margin: 0 0 5px 15px; }
 .centered							{ margin-bottom: 20px; text-align: center; }
 .bold								{ font-weight: bold; }
 .italic								{ font-style: italic; }
 .underline							{ text-decoration: underline; }
 .strike								{ text-decoration: line-through; }
-
-.rollover							{ display: block; background-position: center top; background-repeat: no-repeat; text-indent: -999em; }
-	.rollover:hover					{ background-position: center bottom; }
-	
-.seo_title							{ margin: 0; padding: 0; text-indent: -999em; overflow: hidden; border: 0; }
 
 #MemberLoginForm_LoginForm #Remember{ float:right; width:65%; }
 #MemberLoginForm_LoginForm #Remember label	{ width:auto; }
