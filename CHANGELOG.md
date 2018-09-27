@@ -1,6 +1,9 @@
 ## Package: iqnection-silverstripe-mysite
 # Change Log
 
+## [2.2.2]
+- SCSS improvements and better file structure
+
 ## [2.2.0]
 - changed to SCSS
 

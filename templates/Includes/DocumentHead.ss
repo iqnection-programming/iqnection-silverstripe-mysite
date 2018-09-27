@@ -16,7 +16,6 @@
 		$SiteConfig.AdditionalHeaderCode.RAW
 	<% end_if %>
 	<% if $SiteConfig.GoogleTagManagerHeadCode %>$SiteConfig.GoogleTagManagerHeadCode.RAW<% end_if %>
-    <% if $SiteConfig.GoogleTrackingUniversal %><% include GA %><% end_if %>
     <!--[if lt IE 9]>
     <script src="/themes/mysite/javascript/html5shiv.js"></script>
     <script src="/themes/mysite/javascript/html5shiv-printshiv.js"></script>

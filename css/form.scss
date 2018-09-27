@@ -1,5 +1,7 @@
+@import "./base.scss";
+
 #form-page-layout						{ display:flex; justify-content:space-between; align-items:flex-start; 
-	> *					{ display:block; width:100%; }
+	> *									{ display:block; width:100%; }
 }
 #form_page_left							{ max-width:45%; }
 #form_page_right						{ max-width:50%; }
@@ -40,6 +42,10 @@ div.field								{ margin-bottom: 8px; display:flex; justify-content:space-betwe
 		.optionset						{ list-style:none; margin:0; padding:0; }
 		.optionset li					{ margin:0; padding:0; }
 	}
+	&.checkbox							{ justify-content:flex-start; 
+		> input							{ margin-left:35%; width:auto; }
+		> label							{ text-align:left !important; width:auto; padding-top:0px; margin-left:10px; }
+	}
 }
 
 span.readonly							{ display:block; width:auto; min-height:30px; padding-top:6px; line-height:18px; font-size:14px; color:#039; }
@@ -55,9 +61,6 @@ input.currency							{ background:url(/themes/mysite/images/icons/money_dollar.p
 
 .checkbox_ct > label					{ margin-bottom: -22px; margin-left: 30px; }
 .checkbox_ct > input					{ float: left; clear: both; }
-div.checkbox:after						{ content:"."; display:block; height:0; clear:both; zoom:1; visibility:hidden; }
-div.checkbox > input					{ margin-left:35%; }
-div.checkbox > label					{ text-align:left !important; float:right; width:61%; padding-top:2px !important; }
 
 span.message.required					{ color:#c00000; display:block; clear:both; text-align:left; }
 label.error								{ color:#c00000; }

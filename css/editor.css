@@ -1,11 +1,11 @@
-@import "typography.css";
-@import "fonts.css";
+@import "/assets/combined/themes-mysite-css-layout.css";
+@import "/assets/combined/themes-mysite-css-typography.css";
  
-body.mceContentBody {
+body.mce-content-body {
 	min-height: 200px;
 	background-color: #fff;
 }
-body.mceContentBody a.broken {
+body.mce-content-body a.ss-broken {
 	background-color: #FF7B71;
 	border: 1px red solid;
 }

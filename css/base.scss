@@ -1,0 +1,69 @@
+$baseFontSize: 16px; // Henceforth known as 1em
+$bodyFontStack: Arial, sans-serif;
+
+$colorTextBody: #333;
+$colorPrimary: #5b7e96;
+$colorSecondary: #f3f3f3;
+
+$h1: 40px;
+$h2: 30px;
+$h3: 24px;
+$h4: 20px;
+$h5: 18px;
+$h6: 15px;
+
+/*=====================================
+uses:
+.element {
+	@include prefixer(transform, scale(1.5), ms webkit spec);
+}
+=======================================*/
+@mixin prefixer($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      -webkit-#{$property}: $value;
+    } @else if $prefix == moz {
+      -moz-#{$property}: $value;
+    } @else if $prefix == ms {
+      -ms-#{$property}: $value;
+    } @else if $prefix == o {
+      -o-#{$property}: $value;
+    } @else if $prefix == spec {
+      #{$property}: $value;
+    } @else  {
+      @warn "Unrecognized prefix: #{$prefix}";
+    }
+  }
+}
+
+/*=====================================
+uses:
+.element {
+	@include transform(scale(1.5));
+}
+=======================================*/
+@mixin transform($transform) {
+  @include prefixer(transform, $transform, ms webkit spec);
+}
+/*=====================================
+uses:
+.element {
+	@include transition(all 300ms ease);
+}
+=======================================*/
+@mixin transition($transition) {
+  @include prefixer(transition, $transition, ms webkit spec);
+}
+
+/*=====================================
+uses:
+.element {
+	font-size:em(20px);
+}
+=======================================*/
+@function em($target, $context: $baseFontSize) {
+  @if $target == 0 {
+    @return 0;
+  }
+  @return $target / $context + 0em;
+}

@@ -34,3 +34,5 @@ address								{ font-style:normal; }
 
 #MemberLoginForm_LoginForm #Remember{ float:right; width:65%; }
 #MemberLoginForm_LoginForm #Remember label	{ width:auto; }
+
+#BetterNavigator					{ top:auto !important; bottom:0; }
