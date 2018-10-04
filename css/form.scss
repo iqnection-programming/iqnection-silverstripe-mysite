@@ -2,9 +2,9 @@
 
 #form-page-layout						{ display:flex; justify-content:space-between; align-items:flex-start; 
 	> *									{ display:block; width:100%; }
+	.form-page-left						{ max-width:45%; }
+	.form-page-right					{ max-width:50%; }
 }
-#form_page_left							{ max-width:45%; }
-#form_page_right						{ max-width:50%; }
 
 .form_full								{ width:700px; max-width:100%; margin:0px auto; clear:both; }
 .form_full:after						{ content:"."; display:block; height:0; clear:both; zoom:1; visibility:hidden; }
@@ -20,7 +20,9 @@ div.required > label:after				{ content:" *"; color:#c00000; margin-right:-10px;
 
 div.field								{ margin-bottom: 8px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;
 	> *									{ display:block; width:100%; }
-	> label								{ max-width:30%; line-height:18px; color:#353231; text-align:right; margin:0px; padding-top:10px; }
+	> label								{ max-width:30%; line-height:18px; color:#353231; margin:0px; padding-top:10px; 
+		&.left							{ text-align:right; }
+	}
 	> .description						{ display:block; margin-left:35%; font-size:0.9em; max-width:65%; }
 	> div 								{ max-width:65%; min-height:30px; 
 		select,
