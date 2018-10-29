@@ -48,6 +48,7 @@ div.field								{ margin-bottom: 8px; display:flex; justify-content:space-betwe
 		> input							{ margin-left:35%; width:auto; }
 		> label							{ text-align:left !important; width:auto; padding-top:0px; margin-left:10px; }
 	}
+	&.form-group--no-label				{ justify-content:flex-end; }
 }
 
 span.readonly							{ display:block; width:auto; min-height:30px; padding-top:6px; line-height:18px; font-size:14px; color:#039; }
