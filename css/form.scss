@@ -6,8 +6,10 @@
 	.form-page-right					{ max-width:50%; }
 }
 
-.form_full								{ width:700px; max-width:100%; margin:0px auto; clear:both; }
-.form_full:after						{ content:"."; display:block; height:0; clear:both; zoom:1; visibility:hidden; }
+.form_full,
+.centeredForm							{ width:700px; max-width:100%; margin:0px auto; clear:both; }
+.form_full:after,
+.centeredForm:after						{ content:"."; display:block; height:0; clear:both; zoom:1; visibility:hidden; }
 
 fieldset								{ border:none; padding:0; margin:0; width:100%; }
 
