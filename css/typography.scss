@@ -54,6 +54,12 @@
 		&.center						{ display:block; margin: 0 auto 5px; }
 	}
 	
+	.embedded-content					{ max-width:100%; display:inline-block; 
+		&.right-wrap					{ display:block; float: right;  margin: 0 0 5px 15px; }
+		&.left-wrap						{ display:block; float: left; margin: 0 15px 5px 0; }
+		&.centered 						{ display:block; margin: 0 auto 5px; }
+	}
+	
 	iframe								{ max-width:100%; }
 	
 	@media (max-width:500px){
