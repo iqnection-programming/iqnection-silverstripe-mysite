@@ -7,6 +7,7 @@ textarea,
 button,
 select {
   font-size: $baseFontSize;
+  line-height:1.625;
   font-family: $bodyFontStack;
   color: $colorTextBody;
   font-weight: 400;
@@ -20,6 +21,18 @@ h3													{ font-size:$h3; }
 h4													{ font-size:$h4; }
 h5													{ font-size:$h5; }
 h6													{ font-size:$h6; }
+h1,h2,h3,h4,h5,h6									{ font-family:$serif; line-height:1.05; }
+
+@media(max-width:500px){
+	h1												{ font-size:reduce($h1,65); }
+	h2												{ font-size:reduce($h2,75); }
+	h3												{ font-size:reduce($h3,80); }
+	h4												{ font-size:reduce($h4,75); }
+	h5												{ font-size:reduce($h5,75); }
+	h6												{ font-size:reduce($h6,75); }
+}
+div.wrap											{ width:100%; padding:0 1.5%; }
+div.wrap > *										{ width:100%; max-width:1230px; margin:0 auto; display:block; }
 
 
 

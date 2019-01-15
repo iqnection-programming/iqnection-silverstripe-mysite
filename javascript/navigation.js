@@ -1,4 +1,4 @@
-var main_nav = "#nav_wrap nav";
+var main_nav = "#main-nav nav";
 var touchbound = false;
 
 // Pixel width where nav toggles desktop/mobile
@@ -306,13 +306,16 @@ var width_fix = 1;
 			}
 		});
 	};
-//	w.setupDesktopNav();
-//	w.addResponsiveAdjustment(w.responsiveNav);
-	$(d).ready(function(){
+
+	w._pageLoaded = function(){
 		$(w).bind('touchstart', function(){ w.isTouch(); });
 		if (navigator.msMaxTouchPoints) { $(w).bind('MSPointerDown', function(){ w.isTouch(); }); }
 		w.setupDesktopNav();
 		w.addResponsiveAdjustment(w.responsiveNav);
+	};
+	
+	$(d).ready(function(){
+		w._pageLoaded();
 	});
 
 }(window,document,jQuery));

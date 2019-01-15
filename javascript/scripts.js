@@ -24,15 +24,6 @@
 			}
 		},1000);
 		
-	/*
-		setupFormField("#SearchForm_SearchFor", "Search");
-	
-		$('#SearchForm_SearchForm').submit(function(){
-			if( !validateFormField("#SearchForm_SearchFor", "Search", "Please specify your search terms") )
-				return false;
-			return true;
-		});
-	*/
 		$("a[href^=tel]").click(function(e){
 			if ($(window).width() > 600){
 				e.preventDefault();

@@ -1,4 +1,4 @@
-<div id="footer_wrap" class="wrap">
+<div id="footer" class="wrap">
     <footer>
         <nav>
             <ul>
@@ -8,29 +8,29 @@
                 <% end_loop %>
             </ul>
         </nav>
-        <ul id="social">
+        <ul class="social">
 			<% include SocialIcons Icon=Facebook %>
 			<% include SocialIcons Icon=Twitter %>
-			<% include SocialIcons Icon=Pinterest %>
 			<% include SocialIcons Icon=LinkedIn %>
+			<% include SocialIcons Icon=YouTube %>
 			<% include SocialIcons Icon=Instagram %>
 			<% include SocialIcons Icon=Houzz %>
 			<% include SocialIcons Icon=GooglePlus %>
 			<% include SocialIcons Icon=Blog %>
+			<% include SocialIcons Icon=Pinterest %>
 			<% include SocialIcons Icon=Flickr %>
-			<% include SocialIcons Icon=YouTube %>
 			<% include SocialIcons Icon=Vimeo %>
 			<% include SocialIcons Icon=Yelp %>
 			<% include SocialIcons Icon=Tumblr %>
 			<% include SocialIcons Icon=AngiesList %>
         </ul><!--social-->
-        <p id="copyright">
+        <div class="copyright">
             Copyright &copy; $CopyrightYear $CopyrightName<br />
             <% if ClassName == HomePage %>
-				<a href="http://www.iqnection.com" target="_blank">Website Design by IQnection - A Digital Marketing Agency</a>
+				<a href="https://www.iqnection.com" target="_blank">Website Design by IQnection - A Digital Marketing Agency</a>
 			<% else %>
 				Website Design by IQnection - A Digital Marketing Agency
 			<% end_if %>
-        </p>
+        </div>
     </footer>
 </div><!--footer_wrap-->

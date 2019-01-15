@@ -1,6 +1,10 @@
 ## Package: iqnection-silverstripe-mysite
 # Change Log
 
+## [2.2.4]
+- Minor CSS & SCSS changes/improvements
+- Minor template changes/adjustments
+
 ## [2.2.3]
 - Added SCSS versions of jQuery UI files
 - Added missing javascript/jquery-ui.min.(scss,css) file

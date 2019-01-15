@@ -1,5 +1,7 @@
 $baseFontSize: 16px; // Henceforth known as 1em
 $bodyFontStack: Arial, sans-serif;
+$black: #000000;
+$white: #FFFFFF;
 
 $colorTextBody: #333;
 $colorPrimary: #5b7e96;
@@ -11,6 +13,7 @@ $h3: 24px;
 $h4: 20px;
 $h5: 18px;
 $h6: 15px;
+
 
 /*=====================================
 uses:
@@ -66,4 +69,27 @@ uses:
     @return 0;
   }
   @return $target / $context + 0em;
+}
+
+@function reduce($original, $factor) {
+  @if $factor == 0 {
+    @return $original;
+  }
+  @return ($original * (0.01 * $factor)) + 0px;
+}
+
+/*=====================================
+uses:
+.element {
+	line-height:lh(20px,24px);
+}
+=======================================*/
+@function lh($lineHeight, $fontSize) {
+  @if $lineHeight == 0 {
+    @return 1;
+  }
+  @if $fontSize == 0 {
+    @return 1;
+  }
+  @return $lineHeight / $fontSize;
 }

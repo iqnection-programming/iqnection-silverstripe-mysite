@@ -1,15 +1,16 @@
-<div id="header_wrap" class="wrap">
+<a href="javascript:;" id="nav_toggle"><span class="bar bar1"></span><span class="bar bar2"></span><span class="bar bar3"></span></a>       
+
+<div id="header" class="wrap">
     <header>
-        <a href="/" id="logo"><img src="/themes/mysite/images/logo.png" alt="$SiteConfig.Title | $SiteConfig.Tagline" /></a> 
-		<a href="javascript:;" id="nav_toggle"><span class="bar bar1"></span><span class="bar bar2"></span><span class="bar bar3"></span></a>       
+        <a href="/" class="logo"><img src="{$ThemeDir}/images/logo.png" alt="$SiteConfig.Title | $SiteConfig.Tagline" /></a> 
     </header>
 </div><!--header_wrap-->
 
-<div id="nav_wrap" class="wrap">
+<div id="main-nav" class="wrap">
 	<nav class="desktop">
 		<ul>
 			<% loop Menu(1) %>
-				<li><a href="$Link" target="$Target" class="$LinkingMode" id="nav$Pos" $NavNoFollow<% if $ClassName==HeadingPage %> data-is-heading="1"<% end_if %>>$MenuTitle</a><% include Dropdown %></li>
+				<li><a href="$Link" target="$Target" class="$LinkingMode" id="nav-$ID" $NavNoFollow<% if $ClassName==IQnection\HeadingPage\HeadingPage %> data-is-heading="1"<% end_if %>>$MenuTitle</a><% include Dropdown %></li>
 			<% end_loop %>
 		</ul>
 	</nav>

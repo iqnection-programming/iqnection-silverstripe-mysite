@@ -2,7 +2,7 @@
 
     <% include Header %>
     
-    <div id="main_wrap" class="wrap">
+    <div id="main-wrap" class="inside wrap">
     	<div id="main">
         	<div id="page_type" class="home typography">
         		$Layout
