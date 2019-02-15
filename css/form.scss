@@ -32,7 +32,7 @@ div.field								{ margin-bottom: 8px; display:flex; justify-content:space-betwe
 		input[type=text],
 		input[type=email],
 		input[type=number],
-		input[type=password]			{ width: 100%; height:auto; min-height:43px; padding:10px; border: 1px #ccc solid; color: #353231; font: normal 15px/15px Arial, sans-serif; margin-bottom: 2px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+		input[type=password]			{ width: 100%; height:auto; min-height:43px; padding:10px; border: 1px #ccc solid; color: #353231; margin-bottom: 2px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
 
 		input[type=text]:focus,
 		input[type=email]:focus,
@@ -55,7 +55,7 @@ div.field								{ margin-bottom: 8px; display:flex; justify-content:space-betwe
 
 span.readonly							{ display:block; width:auto; min-height:30px; padding-top:6px; line-height:18px; font-size:14px; color:#039; }
 
-input.currency							{ background:url(/themes/mysite/images/icons/money_dollar.png) no-repeat center left #ffffff !important; text-indent:15px !important; }
+input.currency							{ background:url(#{$ThemeDir}/images/icons/money_dollar.png) no-repeat center left #ffffff !important; text-indent:15px !important; }
 
 .hpf									{ display:none; }
 
@@ -70,16 +70,15 @@ input.currency							{ background:url(/themes/mysite/images/icons/money_dollar.p
 span.message.required					{ color:#c00000; display:block; clear:both; text-align:left; }
 label.error								{ color:#c00000; }
 
-.message								{ text-align: center; font: bold 15px/15px Verdana, sans-serif; margin-bottom: 20px; display:block; clear:both; }
+.message								{ text-align: center; font-weight:700; font-size:em(15px); margin-bottom: 20px; display:block; clear:both; }
 .message.good							{ color: #757c5d; }
 .message.bad							{ color: #892516; }
 
 .Actions,
-.btn-toolbar							{ margin-left:35%;
-	input								{ color:#FFF; font-size:16px; outline:none; border:none; padding:8px 15px; background:#001940; margin-bottom:3px; 
-		&:hover,
-		&:focus							{ cursor:pointer; background: #03337E; }
-	}
+.btn-toolbar							{ margin-left:35%; }
+input[type="submit"]					{ color:#FFF; font-size:16px; outline:none; border:none; padding:8px 15px; background:#666; margin-bottom:3px; 
+	&:hover,
+	&:focus								{ cursor:pointer; background: #000; }
 }
 
 .middleColumn label						{ font-size:16px; }
@@ -104,7 +103,10 @@ h3.form-header							{ clear:both; width:65%; float:right; padding:0 0 5px 0; ma
 .ui-widget								{ z-index:500 !important; }
 
 @media (max-width:800px){
-	#form-page-layout					{ flex-direction:column; }
+	#form-page-layout					{ flex-direction:column; 
+		.form-page-left,
+		.form-page-right				{ max-width:none; }
+	}
 	#form_page_left,
 	#form_page_right					{ max-width:none; }
 }
