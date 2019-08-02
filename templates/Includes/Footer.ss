@@ -15,7 +15,7 @@
 			<% include SocialIcons Icon=YouTube %>
 			<% include SocialIcons Icon=Instagram %>
 			<% include SocialIcons Icon=Houzz %>
-			<% include SocialIcons Icon=GooglePlus %>
+			<% include SocialIcons Icon=GMB %>
 			<% include SocialIcons Icon=Blog %>
 			<% include SocialIcons Icon=Pinterest %>
 			<% include SocialIcons Icon=Flickr %>

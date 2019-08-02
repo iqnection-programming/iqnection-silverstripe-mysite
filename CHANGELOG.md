@@ -1,6 +1,9 @@
 ## Package: iqnection-silverstripe-mysite
 # Change Log
 
+## [2.2.5]
+- Updated default social media icons in footer template
+
 ## [2.2.4]
 - Minor CSS & SCSS changes/improvements
 - Minor template changes/adjustments
