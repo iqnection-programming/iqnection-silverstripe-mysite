@@ -1,4 +1,3 @@
-<a href="javascript:;" id="nav_toggle"><span class="bar bar1"></span><span class="bar bar2"></span><span class="bar bar3"></span></a>       
 
 <div id="header" class="wrap">
     <header>

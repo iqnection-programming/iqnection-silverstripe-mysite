@@ -34,3 +34,7 @@
         </div>
     </footer>
 </div><!--footer_wrap-->
+
+<a href="javascript:;" class="nav-toggle"><span class="bar bar1"></span><span class="bar bar2"></span><span class="bar bar3"></span></a>
+
+<div id="mobile-nav"></div><!--/#mobile-nav-->

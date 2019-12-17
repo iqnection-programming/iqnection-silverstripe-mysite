@@ -1,321 +1,324 @@
-var main_nav = "#main-nav nav";
-var touchbound = false;
-
-// Pixel width where nav toggles desktop/mobile
-var break_point = 1024;
-
-// for hamburger flyout nav, which side will it be located
-var flyout_side = 'right';
-
-// Set to true if javascript will dynamically space nav items
-var space_nav = false;
-
-// Set to 'li > a' or 'li' based on which element should get padding/margin
-var space_tag = "li";
-
-// Should be set to true if your first and last nav item are against site edges
-var edges = false;
-
-// Whether or not to use percentages when spacing teh nav. Only works when edges is false
-var use_percent = true;
-
-// Set type to 'padding' or 'margin'
-var type = 'padding';
-
-// This should be zero.  If it isn't, the font being used is ruining everything.
-var width_fix = 1;
-
-(function(w,d,$){
-	"use strict";	
-	w.onBeforeSwitchToDesktop = function(){
-		$(":root").removeClass('mobile');
-		return $.Deferred().resolve();
-	};
-	
-	w.onBeforeSwitchToMobile = function(){
-		$(":root").addClass('mobile');
-		return $.Deferred().resolve();
-	};
-	
-	w.openMobileNav = function(){
-		var adjust = {};
-		adjust[flyout_side] = '-2px';
-		$("nav.mobile").stop(true,false).show().animate(adjust,300,'linear',function(){
-			$(this).addClass('open');
-			$("#nav_toggle").addClass('open');
-		});
-	};
-	
-	w.closeMobileNav = function(){
-		$("#nav_toggle").removeClass('open');
-		var adjust = {};
-		adjust[flyout_side] = '-200%';
-		$("nav.mobile").stop(true,false).animate(adjust,300,function(){ 
-			$(this).removeClass('open').hide();
-		});
-	};
-	
-	w.setupMobileNav = function(){
-		$("body").click(function(e){
-			if ( (!$(e.target).parents('nav.mobile').length) && (!$(e.target).is('nav.mobile')) && ($('nav.mobile').is(':visible')) && (!$('nav.mobile').is(':animated')) ){
-				w.closeMobileNav();
-			}
-		});
-		$("#nav_toggle").unbind('click').click(function(){
-			if($('nav.mobile').hasClass('open')){
-				w.closeMobileNav();
-			}else{
-				w.openMobileNav();
-			}
-		});
-		$("#nav_close").click(function(){
-			w.closeMobileNav();
-		});
-	};
-	var touched=false;
-	w.setupDesktopNav = function(){	
-		$(w.main_nav).each(function(){
-			$(this).find('li').each(function() {
-				// First we clear off mobile click if present
-				$(this).find('> a').unbind('click touchstart')
-					.bind('touchstart',function(e){
-						touched=true;
-						return;
-					}).bind('click',function(e){
-						if((touched)&&($(this).parents('li').first().find('.dropdown').length)){
-							e.preventDefault();
+(function($){
+	"use strict";
+	var MobileMenu = function(name,options) {
+		var element = $("#"+name);
+		if (!element.length) {
+			element = $('<nav></nav>');
+			element.attr('id',name);
+			$('body').append(element);
+		}
+		// get the DOM object if provided a jQuery object
+		if (element[0] !== undefined) {
+			element = element[0];
+		}
+		if (element.MobileNav === undefined) {
+			$.extend(this, {
+				root: element,
+				options: {
+					container: 'body',
+					structure: {},
+					controls: [],
+					bodyClass: 'mobile-nav-open',
+					ulClass: null,
+					liClass: null,
+					linkClass: null,
+					addCloseBtn: false,
+					nextLevelClass: 'level-switch level-down',
+					prevLevelClass: 'level-switch level-up'
+				},
+				closeBtn: {},
+				initialized: false,
+				init: function(){
+					var me = this;
+					if (!this.initialized) {
+						$("body").removeClass(me.options.bodyClass);
+						$(me.options.controls).unbind('click').bind('click',function(){
+							me.toggle();
+						});
+						me.initialized = true;
+						me._load();
+						me.hide();
+						if (me.options.addCloseBtn) {
+							me.closeBtn = $('<a href="javascript:;" class="nav-close"></a>');
+							$(me.root).prepend(me.closeBtn);
+							me.closeBtn.click(function(){
+								me.hide();
+							});
 						}
-						touched=false;
-						return;
+						$(me.options.container).append($(me.root));
+					}
+					return me;
+				},
+				_load: function() {
+					var me = this;
+					var ul = $('<ul class="level-1"></ul>');
+					$(me.root).append(ul);
+					if (me.options.ulClass) {
+						ul.addClass(me.options.ulClass);
+					}
+					$.each(me.options.structure, function(){
+						var li = $('<li class="level-'+this.level+'"></li>');
+						ul.append(li);
+						if (me.options.liClass) {
+							li.addClass(me.options.liClass);
+						}
+						var a = $('<a href="'+this.link+'" class="level-'+this.level+'"><span class="title">'+this.title+'</span></a>');
+						li.append(a);
+						if (me.options.linkClass) {
+							a.addClass(me.options.linkClass);
+						}
+						if (this.children.length) {
+							var trigger = $('<span class="level-'+this.level+'"><i class="fa fa-chevron-right"></i></span>');
+							li.append(trigger);
+							if (me.options.nextLevelClass) {
+								trigger.addClass(me.options.nextLevelClass);
+							}
+							var dropdown = me._buildDropdown(this, this.children);
+							li.append(dropdown);
+							trigger[0]._dropdown = dropdown[0];
+							trigger.click(function(e){
+								e.preventDefault();
+								$(this._dropdown).addClass('show');
+							});
+						}
 					});
-				$(this).mouseover(function() {				
-					w.showDesktopNavDropdown($(this));
-				}).mouseout(function() {
-					w.hideDesktopNavDropdown($(this));
-				});
+				},
+				_buildDropdown: function(parent, children) {
+					if (!children.length) {
+						return null;
+					}
+					var me = this;
+					var ul = $('<ul class="level-'+(parent.level+1)+'"></ul>');
+					if (me.options.ulClass) {
+						ul.addClass(me.options.ulClass);
+					}
+					var li = $('<li class="level-'+(parent.level+1)+'"></li>');
+					ul.append(li);
+					if (me.options.liClass) {
+						li.addClass(me.options.liClass);
+					}
+					var a = $('<a class="level-'+(parent.level+1)+'"><span class="title">'+parent.title+'</span></a>');
+					var trigger = $('<span class="level-'+(parent.level+1)+'"><i class="fa fa-chevron-left"></i></span>');
+					li.append(trigger);
+					li.append(a);
+					trigger[0]._dropdown = ul[0];
+					a[0]._dropdown = ul[0];
+					$(a).click(function(e){
+						e.preventDefault();
+						$(this._dropdown).removeClass('show');
+					});
+					$(trigger).click(function(e){
+						e.preventDefault();
+						$(this._dropdown).removeClass('show');
+					});
+					if (me.options.linkClass) {
+						a.addClass(me.options.linkClass);
+					}
+					if (me.options.prevLevelClass) {
+						trigger.addClass(me.options.prevLevelClass);
+					}
+					$.each(children, function(){
+						li = $('<li class="level-'+this.level+'"></li>');
+						ul.append(li);
+						if (me.options.liClass) {
+							li.addClass(me.options.liClass);
+						}
+						a = $('<a href="'+this.link+'" class="level-'+this.level+'"><span class="title">'+this.title+'</span></a>');
+						li.append(a);
+						if (me.options.linkClass) {
+							a.addClass(me.options.linkClass);
+						}
+						if (this.children.length) {
+							trigger = $('<span class="level-'+this.level+'"><i class="fa fa-chevron-right"></i></span>');
+
+							li.append(trigger);
+							if (me.options.nextLevelClass) {
+								trigger.addClass(me.options.nextLevelClass);
+							}
+							var dropdown = me._buildDropdown(this,this.children);
+							li.append(dropdown);
+							trigger[0]._dropdown = dropdown[0];
+							trigger.click(function(e){
+								e.preventDefault();
+								$(this._dropdown).addClass('show');
+							});
+						}
+					});
+					return ul;
+				},
+				show: function() {
+					$(this.root).removeClass('closed').addClass('open');
+					$(this.options.controls).removeClass('closed').addClass('open');
+					$("body").addClass(this.options.bodyClass);
+					return this;
+				},
+				hide: function() {
+					$(this.root).removeClass('open').addClass('closed');
+					$(this.options.controls).removeClass('open').addClass('closed');
+					$("body").removeClass(this.options.bodyClass);
+					return this;
+				},
+				toggle: function (){
+					if ($(this.root).hasClass('open')) {
+						this.hide();
+					} else {
+						this.show();
+					}
+					return this;
+				}
 			});
-		});		
+			$.extend(this.options, options);
+			element.MobileNav = this;
+			this.init();
+		}
+		return element.MobileNav;
 	};
-	
-	w.showDesktopNavDropdown = function(navItem){
-		navItem.children('.dropdown').fadeIn(200);
-	};
-	
-	w.hideDesktopNavDropdown = function(navItem){
-		setTimeout(function(){
-			if($(navItem).find(":hover").length) { return; }
-			navItem.children('.dropdown').fadeOut(100);
-		},100);
-	};
-	
-	w.isTouch = function() {
-		if (!touchbound)
-		{
-			$(main_nav).each(function(){
-				$(this).find('li').each(function(){
-					var li=$(this);
-					li.unbind("hover");
-					li.unbind("mouseover");
-					li.unbind("mouseout");
+	var DesktopMenu = function(element, options){
+		if (typeof element === 'string') {
+			element = $(element);
+		}
+		if (element[0] !== undefined) {
+			element = element[0];
+		}
+		if (element.DesktopMenu !== undefined) {
+			return element.DesktopMenu;
+		}
+		$.extend(this, {
+			element: element,
+			ul: {},
+			lis: [],
+			dropdowns: [],
+			touchbound: false,
+			options: {
+				dropdown_selector: '.dropdown'
+			},
+			initialized: false,
+			init: function() {
+				var me = this;
+				me.ul = $(me.element).find('ul')[0];
+				$(me.ul).find('>li').addClass('level-1');
+				me.lis = $(me.element).find('li');
+				me.lis.each(function() {
+					var li=this;
+					if ($(li).find(me.options.dropdown_selector).length) {
+						li._dropdown = $(li).find(me.options.dropdown_selector)[0];			
+						$(li).mouseover(function() {
+							if (!li._isHovered) {
+								li._isHovered = true;
+								setTimeout(function(){
+									if (li._isHovered) {
+										me._showDropdown(li);
+									}
+								},$(li._dropdown).data('show-delay') ? $(li._dropdown).data('show-delay') : 0);
+							}
+						}).mouseout(function() {
+							if (li._isHovered) {
+								li._isHovered = false;
+								setTimeout(function(){
+									if (!li._isHovered) {
+										me._hideDropdown(li);
+									}
+								},$(li._dropdown).data('hide-delay') ? $(li._dropdown).data('hide-delay') : 0);
+							}
+						});
+					}
+				});
+				$(window).bind('touchstart', function(){ me._touchBind(); });
+				if (navigator.msMaxTouchPoints) { $(window).bind('MSPointerDown', function(){ me._touchBind(); }); }
+				return this;
+			},
+			_toggleDropdown: function(navItem){
+				if (navItem[0] !== undefined) {
+					navItem = navItem[0];
+				}
+				if (navItem._dropdown !== undefined) {
+					if (navItem._dropdown._open) {
+						this._hideDropdown(navItem);
+					} else {
+						this._showDropdown(navItem);
+					}
+				}
+				return navItem;
+			},
+			_showDropdown: function(navItem){
+				var me=this;
+				$(me.lis).not(navItem).not($(navItem).parents('.level-1').first()).each(function(){
+					me._hideDropdown(this);
+				});
+				if (navItem[0] !== undefined) {
+					navItem = navItem[0];
+				}
+				if (navItem._dropdown !== undefined) {
+					navItem._dropdown._open = true;
+					$(navItem._dropdown).fadeIn(200);
+				}
+				return navItem;
+			},
+			_hideDropdown: function(navItem, buffer){
+				buffer = buffer || 100;
+				if (navItem[0] !== undefined) {
+					navItem = navItem[0];
+				}
+				if (navItem._dropdown !== undefined) {
+					setTimeout(function(){
+						// slight bug when jumping between child elements
+						// make sure this item doesn't have any children that are being hovered
+						if($(navItem).find(":hover").length) { return; }
+						navItem._dropdown._open = false;
+						$(navItem._dropdown).fadeOut(100);
+					},buffer);
+				}
+				return navItem;
+			},
+			_touchBind: function() {
+				var me=this;
+				if (!me.touchbound)
+				{
+					$(me.lis).each(function(){
+						if (this._dropdown !== undefined) {
+							var li=$(this);
+							li.unbind("hover");
+							li.unbind("mouseover");
+							li.unbind("mouseout");
 					
-					if ($(this).find("ul").length > 0)
-					{
-						$(this).unbind('mouseout');
-						$(this).unbind('mouseover');
-						
-						//$(this).children("ul").prepend("<li><a href='"+$(this).children("a").attr("href")+"'>"+$(this).children("a").html()+"</a></li>");
-					
-						$(this).find("a").first().bind('click', function(e){
-							if (!$(":root").hasClass('mobile'))
-							{ 
+							$(this).find("a").first().bind('click', function(e){
 								e.preventDefault(); 
-								
-								if (li.attr("rel") === "open")
-								{
-									// clicking to close
-									li.attr("rel", "closed");
-									w.hideDesktopNavDropdown(li);
-								}
-								else
-								{
-									// are we clicking another top nav, or a sub nav
-									if ($(this).parents('li[rel=open]').length > 0)
-									{
-										if (li.children('.dropdown').length === 0)
-										{
-											$('nav li').each(function(){
-												w.hideDesktopNavDropdown($(this));
-											});
-											$("li[rel=open]").attr("rel", "closed");
-										}							
-										li.attr("rel", "open");
-										w.showDesktopNavDropdown(li);	
-									}
-									else
-									{						
-										$('nav .dropdown').hide();
-										$("li[rel=open]").attr("rel", "closed");
-										li.attr("rel", "open");
-										w.showDesktopNavDropdown(li);
-									}
-								}
+								me._toggleDropdown($(this).parents('li').first()[0]);
 								return false;
-							}
-						});
-						$("body").bind('click',function(e){
-							if(!$(e.target).parents().filter(li).length){
-								w.hideDesktopNavDropdown(li);
-							}
-						});
-					}
-				});
-			});
-			
-			touchbound = true;
-			w.responsiveNav();
-		}
-	};
-	
-	/*
-	 * Toggles nav styles
-	 * {nav} variable created in dropdowns.js
-	 */
-	w.responsiveNav = function(force){
-		/*
-		 * DESKTOP NAV
-		 */
-		if($(w).width() > break_point){
-			$(":root").removeClass('mobile');
-			w.onBeforeSwitchToDesktop().done(function(){
-				$(w.main_nav).each(function(){		
-					if($(this).hasClass('mobile')){
-						$(this).removeClass('mobile').addClass('desktop').removeAttr('style');
-						
-						/* Cleanup!
-						 * 1. Remove our nav toggle link
-						 * 2. Remove our cloned parent links in dropdowns
-						 * 3. Run setupNav() from dropdowns.js to assign hover events
-						 * 4. Hide open dropdowns
-						 * 5. Run spaceNav() to space out nav items
-						 */
-						$('.mobile_top').remove();
-						$(this).find('li').css('display','');
-						$('nav.desktop a.open').removeClass('open');
-						$('nav .dropdown').hide();
-						w.setupDesktopNav();
-					}
-					if(space_nav) {w.spaceDesktopNav(this);}
-				});
-			});
-		/*
-		 * MOBILE NAV
-		 */	
-		} else {
-			w.onBeforeSwitchToMobile().done(function(){
-				$(":root").addClass('mobile');
-				$(w.main_nav).each(function(i,nav){
-					if ($(nav).hasClass('desktop')||force===true){
-						$(nav).removeClass('desktop').addClass('mobile').css(flyout_side,'-200%');
-						$(nav).find('> ul.fullwidth > '+space_tag).removeAttr('style');
-						$(nav).find('li').each(function(){
-							$(this).unbind('mouseenter').unbind('mouseleave');
-							var a_tag = $(this).find('> a');
-							// clear off desktop touch event
-							a_tag.unbind('click');
-							a_tag.unbind('mouseout');
-							a_tag.unbind('mouseover');
-							a_tag.unbind('mouseenter');
-							a_tag.unbind('mouseleave');
-							a_tag.unbind('hover');
-							/* If a nav item has a dropdown menu we have to make it mobile friendly
-							 * 1. Add a clone of the parent to the beginning of the dropdown items
-							 * 2. Override parent's default action to instead open the dropdown menu
-							 */
-							if($(this).find('>.dropdown').length){
-								a_tag.addClass('hc');
-								// add the duplicate nav item as a child, but only if not heading page
-								if((!$(this).find('>.dropdown').children('.mobile_top').length)&&(!a_tag.attr('data-is-heading'))){$(this).find('>.dropdown').first().prepend('<li class="mobile_top"><a href="'+a_tag.attr('href')+'">'+a_tag.html()+'</a></li>');}
-								a_tag.unbind('click mouseout mouseover').click(function(e) {
-									e.preventDefault();
-									// reset all other nav items
-									$('a').not(this).not($(this).parents('.dropdown').siblings('a')).not("#nav_toggle").each(function(){
-										$(this).removeClass('open').siblings('.dropdown').slideUp();
-									});
-									// toggle this nav item
-									$(this).toggleClass('open').siblings('.dropdown').slideToggle();
-								});
-							}	
-						});
-						if (!$("#nav_close").length){
-							$(nav).prepend('<a href="javascript:void(0)" id="nav_close">Close</a>');
+							});
 						}
-						w.setupMobileNav();
-					}
-				});
-			});
-		}
-	};
-	
-	/*
-	 * Spaces nav items on desktop
-	 */
-	w.spaceDesktopNav = function(fixnav){
-		$(fixnav).each(function(){
-			var ul=	$(this).find('> ul.fullwidth');
-			var items = ul.find(' > '+space_tag);
-			var item_total = items.length;
-			var nav_width = ul.width();	
-			var items_width = 0;
-			var space;
-			if(!ul.attr('data-base-width')){
-				items.each(function(){
-					$(this).attr('data-base-width',$(this).css('width','auto').width());
-					items_width+=Math.floor($(this).width());
-				});
-				ul.attr('data-base-width',items_width);
-			}else{
-
-				items_width=parseInt(ul.attr('data-base-width'));
-			}
-			if (edges && !use_percent){			
-				space = Math.floor((((nav_width-width_fix)-items_width) / ((item_total - (edges ? 1 : 0))*2)));
-				if(space){
-					items.each(function(index){
-						if(!edges || index !== 0){ $(this).css(type+'-left',space+'px'); }
-						if(!edges || index !== (item_total - 1)){ $(this).css(type+'-right',space+'px'); }
 					});
-				}
-			}else if (edges && use_percent){
-				space = Math.floor( (nav_width-items_width) / ( (item_total * 2) - 2) );
-				if(space){
-					items.each(function(index){
-						var newWidth = parseInt($(this).attr('data-base-width')) + ( ( (!index) || (index+1===items.length) ) ? space : space*2);
-						var percentOfCt = (newWidth / nav_width)*100;
-						$(this).css('width',(percentOfCt.toFixed(2)-0.01) + '%');
+					$("body").bind('click',function(e){
+						if(!$(e.target).parents().filter(me.lis).length){
+							$(me.lis).each(function(){
+								me._hideDropdown(this);
+							});
+						}
 					});
+					me.touchbound = true;
 				}
-			}else{
-				space = Math.floor( (nav_width-items_width) / item_total );
-				if(space){
-					items.each(function(){
-						var newWidth = parseInt($(this).attr('data-base-width')) + space;
-						var percentOfCt = (newWidth / nav_width)*100;
-						$(this).css('width',(percentOfCt.toFixed(2)-0.01) + '%');
-					});
-				}
+				return this;
 			}
 		});
+		$.extend(this.options, options);
+		element.DesktopMenu = this;
+		return this.init();
 	};
-
-	w._pageLoaded = function(){
-		$(w).bind('touchstart', function(){ w.isTouch(); });
-		if (navigator.msMaxTouchPoints) { $(w).bind('MSPointerDown', function(){ w.isTouch(); }); }
-		w.setupDesktopNav();
-		w.addResponsiveAdjustment(w.responsiveNav);
+		
+	window._pageLoaded = function(){
+		window._DesktopMenu = window._DesktopMenu || new DesktopMenu('#header nav');
+		if (window._mobileMenuLinks !== undefined) {
+			window._MobileMenu = window._MobileMenu || new MobileMenu('mobile-nav',{
+				container: 'body',
+				structure: window._mobileMenuLinks,
+				controls: $(".nav-toggle"),
+				addCloseBtn: true
+			});
+		}
 	};
 	
-	$(d).ready(function(){
-		w._pageLoaded();
+	$(document).ready(function(){
+		window._pageLoaded();
 	});
 
-}(window,document,jQuery));
+}(jQuery));
