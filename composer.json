@@ -22,7 +22,6 @@
 	"extra": {
 		"expose": [
 			"css",
-			"fancybox",
 			"fancybox3",
 			"images",
 			"javascript"

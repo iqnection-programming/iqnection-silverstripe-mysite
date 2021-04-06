@@ -1,6 +1,13 @@
 ## Package: iqnection-silverstripe-mysite
 # Change Log
 
+## [3.0.0]
+- Revamp
+- Removed old fancybox
+- upgraded base css files to scss
+- updated FontAwesome to latest
+- removed unneeded images/icons
+
 ## [2.2.6]
 - Rebuilt mobile navigation
 

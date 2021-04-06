@@ -306,7 +306,7 @@
 	};
 		
 	window._pageLoaded = function(){
-		window._DesktopMenu = window._DesktopMenu || new DesktopMenu('#header nav');
+		window._DesktopMenu = window._DesktopMenu || new DesktopMenu('#main-nav nav');
 		if (window._mobileMenuLinks !== undefined) {
 			window._MobileMenu = window._MobileMenu || new MobileMenu('mobile-nav',{
 				container: 'body',

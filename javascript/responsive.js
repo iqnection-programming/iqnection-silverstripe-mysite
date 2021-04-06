@@ -1,42 +1,41 @@
 
-(function(w,d,$){
+var Responsive = Responsive || {
+	responsiveAdjustmentsCollection: [],
+	scrollUpdatesCollection: [],
+	addResponsiveAdjustment: function(a){
+		this.responsiveAdjustmentsCollection.push(a);
+	},
+	addScrollUpdate: function(a){
+		this.scrollUpdatesCollection.push(a);
+	},
+	runScrollUpdates: function(){
+		if (this.scrollUpdatesCollection.length) {
+			this.scrollUpdatesCollection.forEach(function(cb) {
+                cb();
+            });
+		}
+	},
+	runResponsiveAdjustments: function(){
+		if (this.responsiveAdjustmentsCollection.length) {
+			this.responsiveAdjustmentsCollection.forEach(function(cb){
+				cb();
+			});
+		}
+		this.runScrollUpdates();
+	}
+};
+
+(function($){
 	"use strict";
-	var responsiveAdjustmentsCollection = [];
-	var scrollUpdatesCollection = [];
-	w.addResponsiveAdjustment = function(a){
-		responsiveAdjustmentsCollection.push(a);
-	};
-	w.addScrollUpdate = function(a){
-		scrollUpdatesCollection.push(a);
-	};
-	w.runScrollUpdates = function(){
-		if(scrollUpdatesCollection.length){
-			$(scrollUpdatesCollection).each(function(i){
-				scrollUpdatesCollection[i]();
-			});
-		}
-	};
-	w.runResponsiveAdjustments = function(){
-		if(responsiveAdjustmentsCollection.length){
-			$(responsiveAdjustmentsCollection).each(function(i){
-				responsiveAdjustmentsCollection[i]();
-			});
-		}
-		w.runScrollUpdates();
-	};
-	
-	$(d).ready(function(){
-		w.runResponsiveAdjustments();	
-		$(w).load(function(){
-			w.runResponsiveAdjustments();
-			if(scrollUpdatesCollection.length>0){
-				$(w).bind('scroll',function(){
-					w.runScrollUpdates();
-				});
-			}
-		}).resize(function(){
-			w.runResponsiveAdjustments();
-		});
-	});	
-	
-}(window,document,jQuery));
+	$(document).ready(function(){
+		Responsive.runResponsiveAdjustments();
+	});
+    $(window).bind('scroll',function(){
+        Responsive.runScrollUpdates();
+    });
+	$(window).load(function(){
+        Responsive.runResponsiveAdjustments();
+    }).resize(function(){
+        Responsive.runResponsiveAdjustments();
+    });
+}(jQuery));
