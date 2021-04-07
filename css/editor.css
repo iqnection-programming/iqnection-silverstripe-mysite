@@ -1,14 +1,14 @@
-@import "/assets/combined/themes-mysite-css-layout.css";
-@import "/assets/combined/themes-mysite-css-typography.css";
- 
+@import "/assets/_css/themes-mysite-css-layout.css";
+@import "/assets/_css/themes-mysite-css-typography.css";
+
 body.mce-content-body {
-	min-height: 200px;
-	background-color: #fff;
+    min-height: 200px;
+    background-color: #fff;
 }
 body.mce-content-body a.ss-broken {
-	background-color: #FF7B71;
-	border: 1px red solid;
+    background-color: #FF7B71;
+    border: 1px red solid;
 }
 .clear {
-	clear: both;
+    clear: both;
 }
