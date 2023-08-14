@@ -11,8 +11,7 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "^5.0",
-		"iqnection-modules/socialmedia" : "^3.0",
+        "silverstripe/framework": "^5.0",		
 		"jonom/silverstripe-betternavigator": "^4.0",
 		"axllent/silverstripe-scss": "^1.0"
     },
